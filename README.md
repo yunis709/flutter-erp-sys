@@ -1,265 +1,288 @@
-# 🏪 نظام ERP المتكامل للمحلات التجارية
+# 🏪 نظام ERP للمحلات التجارية - Flutter Desktop
 
 <p align="center">
-  <img src="assets/logo.png" alt="ERP System Logo" width="200"/>
+  <img src="assets/logo.png" alt="ERP Logo" width="180"/>
+</p>
+
+<p align="center">
+  <strong>نظام إدارة متكامل للمحلات التجارية والسوبر ماركت</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.24+-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Dart-3.0+-0175C2?style=for-the-badge&logo=dart&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLite-3.45+-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Supabase-2.0+-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
 </p>
 
 <p align="center">
   <a href="#-نظرة-عامة">نظرة عامة</a> •
-  <a href="#-المميزات-الرئيسية">المميزات</a> •
-  <a href="#-الوحدات-النظامية">الوحدات</a> •
-  <a href="#-stack-التقني">Stack التقني</a> •
-  <a href="#-خارطة-الطريق">خارطة الطريق</a> •
-  <a href="#-التوثيق">التوثيق</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"/>
-  <img src="https://img.shields.io/badge/Status-Development-green.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
-  <img src="https://img.shields.io/badge/Platform-Web%20%7C%20Desktop-lightgrey.svg" alt="Platform"/>
+  <a href="#-المميزات">المميزات</a> •
+  <a href="#-التقنيات">التقنيات</a> •
+  <a href="#-الوثائق">الوثائق</a> •
+  <a href="#-البدء-السريع">البدء السريع</a>
 </p>
 
 ---
 
 ## 📋 نظرة عامة
 
-نظام **ERP المتكامل** هو حل برمجي شامل مصمم خصيصاً للمحلات التجارية والسوبر ماركت. يوفر النظام إدارة متكاملة لجميع العمليات التجارية والمحاسبية مع واجهة سهلة الاستخدام وأداء عالي.
+نظام **ERP المتكامل** هو تطبيق سطح مكتب (Windows) مصمم خصيصاً للمحلات التجارية والسوبر ماركت. يعمل **Offline بالكامل** مع مزامنة ذكية للبيانات عند توفر الإنترنت.
 
-### 🎯 الأهداف الرئيسية
+### 🎯 المفهوم الأساسي
 
-- **⚡ الكفاءة**: تسريع العمليات اليومية وتقليل الوقت المهدور
-- **📊 الشفافية**: رؤية شاملة لجميع العمليات في الوقت الفعلي
-- **🔒 الأمان**: حماية البيانات والمعاملات بأعلى معايير الأمان
-- **📈 القابلية للتوسع**: دعم النمو من فرع واحد إلى شبكة فروع
+```mermaid
+flowchart TB
+    subgraph Local["💻 التطبيق المحلي"]
+        App[Flutter Desktop App]
+        SQLite[(SQLite Database)]
+    end
+    
+    subgraph Features["⚡ المميزات"]
+        Offline[يعمل Offline]
+        Fast[سريع جداً]
+        Print[طباعة فواتير]
+        Barcode[قارئ باركود]
+    end
+    
+    subgraph Cloud["☁️ السحابة (اختياري)"]
+        Supabase[Supabase]
+        Backup[نسخ احتياطي]
+        Sync[مزامنة]
+    end
+    
+    App <--> SQLite
+    App -.->|مزامنة يومية| Cloud
+```
 
 ---
 
-## ✨ المميزات الرئيسية
+## ✨ المميزات
+
+### المميزات الرئيسية
+
+| الميزة | الوصف |
+|--------|-------|
+| 🌐 **يعمل Offline** | لا يحتاج إنترنت للعمل اليومي |
+| ⚡ **سريع** | استجابة فورية (SQLite محلي) |
+| 🖨️ **طباعة فواتير** | دعم الطابعات الحرارية (EPSON, etc.) |
+| 📱 **باركود** | قارئ باركود USB/Bluetooth |
+| 💾 **نسخ احتياطي** | مزامنة يومية مع Supabase |
+| 🔒 **آمن** | تشفير البيانات المحلية |
+
+### الوحدات النظامية
 
 ```mermaid
 mindmap
   root((نظام ERP))
-    المحاسبة
-      شجرة حسابات متكاملة
-      قيود يومية آلية
-      قوائم مالية فورية
-    المبيعات
-      نقاط بيع سريعة
-      فواتير إلكترونية
-      عروض وخصومات
-    المشتريات
-      طلبات شراء
-      إدارة الموردين
-      مقارنة أسعار
+    نقاط البيع
+      مسح سريع
+      دفع متعدد
+      خصومات
     المخزون
       تتبع فوري
-      جرد ذكي
       تنبيهات نفاد
+      جرد ذكي
+    المحاسبة
+      قيود آلية
+      كشوف حسابات
+      تقارير
     العملاء
-      نظام ولاء
-      نقاط مكافآت
-      تحليل سلوكي
+      نقاط ولاء
+      فئات عملاء
+      ديون
+    الموردين
+      فواتير شراء
+      مستحقات
     التقارير
+      PDF/Excel
+      رسوم بيانية
       لوحة تحكم
-      تقارير ذكية
-      تحليلات تنبؤية
 ```
 
 ---
 
-## 🧩 الوحدات النظامية
+## 🛠️ التقنيات
 
-| الوحدة | الوصف | الحالة |
-|--------|-------|--------|
-| 📊 [المحاسبة](docs/04-Accounting-System.md) | شجرة الحسابات، القيود اليومية، القوائم المالية | ✅ جاهز |
-| 🛒 [المبيعات](docs/05-Sales-System.md) | نقاط البيع، الفواتير، المرتجعات | ✅ جاهز |
-| 📦 [المشتريات](docs/06-Purchase-System.md) | طلبات الشراء، فواتير الموردين | ✅ جاهز |
-| 📋 [المخزون](docs/07-Inventory-System.md) | المنتجات، المستودعات، الجرد | ✅ جاهز |
-| 👥 [العملاء](docs/08-Customer-System.md) | إدارة العملاء، النقاط، الولاء | ✅ جاهز |
-| 🏭 [الموردين](docs/09-Supplier-System.md) | تقييم الموردين، العقود | ✅ جاهز |
-| 📈 [التقارير](docs/10-Reporting-System.md) | لوحة التحكم، التحليلات | ✅ جاهز |
-
----
-
-## 🛠️ Stack التقني
-
-### Frontend
-```
-React 18+ • TypeScript • Tailwind CSS • shadcn/ui • React Query • Zustand
-```
-
-### Backend
-```
-.NET 8 • ASP.NET Core • Entity Framework • PostgreSQL • Redis
-```
-
-### Infrastructure
-```
-Docker • Kubernetes • Nginx • RabbitMQ • SignalR
-```
-
-<p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" />
-</p>
-
----
-
-## 🗺️ خارطة الطريق
+### Stack التقني
 
 ```mermaid
-gantt
-    title خارطة طريق التطوير
-    dateFormat  YYYY-MM
-    section المرحلة 1
-    التحضير والتصميم    :done, a1, 2026-01, 2M
-    section المرحلة 2
-    التطوير الأساسي    :active, a2, after a1, 2M
-    section المرحلة 3
-    الوحدات الرئيسية   :a3, after a2, 2M
-    section المرحلة 4
-    التقارير والتحليلات :a4, after a3, 1M
-    section المرحلة 5
-    الاختبار والإطلاق   :a5, after a4, 1M
+flowchart TB
+    subgraph Frontend["Frontend"]
+        Flutter[Flutter 3.24+]
+        Dart[Dart 3.0+]
+        Material[Material Design 3]
+    end
+    
+    subgraph LocalDB["قاعدة بيانات محلية"]
+        Drift[Drift ORM]
+        SQLite[(SQLite)]
+    end
+    
+    subgraph Sync["المزامنة"]
+        Supabase[Supabase Client]
+        Edge[Edge Functions]
+    end
+    
+    subgraph Hardware["الأجهزة"]
+        Printer[ESC/POS Printer]
+        Scanner[Barcode Scanner]
+        Cash[Cash Drawer]
+    end
+    
+    Flutter --> Drift --> SQLite
+    Flutter --> Supabase
+    Flutter --> Printer
+    Flutter --> Scanner
 ```
 
-### المراحل التفصيلية
+### الحزم الرئيسية
 
-| المرحلة | المدة | المخرجات |
-|---------|-------|----------|
-| **الإطلاق** (3-4 أشهر) | يناير - أبريل | النظام الأساسي |
-| **التعزيز** (2-3 أشهر) | مايو - يوليو | العروض، الولاء، الفروع |
-| **الابتكار** (2-3 أشهر) | أغسطس - أكتوبر | موبايل، AI، تكاملات |
-| **التوسع** (مستمر) | نوفمبر+ | تحسينات مستمرة |
+```yaml
+# pubspec.yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Database
+  drift: ^2.18.0
+  drift_flutter: ^0.1.0
+  sqlite3_flutter_libs: ^0.5.20
+  
+  # Sync
+  supabase_flutter: ^2.5.0
+  
+  # Printing
+  esc_pos_printer: ^4.1.0
+  esc_pos_utils: ^1.1.0
+  
+  # UI
+  fluent_ui: ^4.9.0
+  flutter_riverpod: ^2.5.0
+  fl_chart: ^0.68.0
+  
+  # Utils
+  intl: ^0.19.0
+  path_provider: ^2.1.3
+  share_plus: ^9.0.0
+  pdf: ^3.10.0
+```
 
 ---
 
-## 📚 التوثيق
+## 📁 هيكل المشروع
 
-### 📖 الوثائق الرئيسية
+```
+flutter_erp/
+├── lib/
+│   ├── main.dart                    # نقطة الدخول
+│   ├── app.dart                     # تطبيق MaterialApp
+│   │
+│   ├── core/                        # الأساسيات
+│   │   ├── constants/               # الثوابت
+│   │   ├── theme/                   # الثيمات
+│   │   ├── utils/                   # الأدوات
+│   │   └── extensions/              # الامتدادات
+│   │
+│   ├── data/                        # البيانات
+│   │   ├── database/                # قاعدة البيانات
+│   │   │   ├── database.dart        # Drift Database
+│   │   │   ├── tables/              # الجداول
+│   │   │   └── daos/                # DAOs
+│   │   ├── models/                  # النماذج
+│   │   └── repositories/            # المستودعات
+│   │
+│   ├── services/                    # الخدمات
+│   │   ├── sync_service.dart        # مزامنة Supabase
+│   │   ├── print_service.dart       # طباعة الفواتير
+│   │   ├── barcode_service.dart     # قارئ الباركود
+│   │   └── backup_service.dart      # النسخ الاحتياطي
+│   │
+│   ├── providers/                   # Riverpod Providers
+│   │   ├── auth_provider.dart
+│   │   ├── cart_provider.dart
+│   │   ├── inventory_provider.dart
+│   │   └── settings_provider.dart
+│   │
+│   ├── screens/                     # الشاشات
+│   │   ├── pos/                     # نقطة البيع
+│   │   ├── inventory/               # المخزون
+│   │   ├── accounting/              # المحاسبة
+│   │   ├── customers/               # العملاء
+│   │   ├── suppliers/               # الموردين
+│   │   ├── reports/                 # التقارير
+│   │   └── settings/                # الإعدادات
+│   │
+│   └── widgets/                     # المكونات المشتركة
+│       ├── common/                  # عامة
+│       ├── pos/                     # POS
+│       └── charts/                  # رسوم بيانية
+│
+├── assets/                          # الأصول
+│   ├── images/
+│   ├── fonts/
+│   └── icons/
+│
+├── windows/                         # إعدادات Windows
+├── test/                            # الاختبارات
+└── pubspec.yaml
+```
+
+---
+
+## 📚 الوثائق
 
 | الوثيقة | الوصف |
 |---------|-------|
 | [📋 نظرة عامة](docs/01-System-Overview.md) | مقدمة شاملة عن النظام |
-| [📊 تحليل الأعمال](docs/02-Business-Analysis.md) | تحليل المتطلبات والعمليات |
+| [📊 تحليل المتطلبات](docs/02-Requirements-Analysis.md) | المتطلبات الوظيفية وغير الوظيفية |
 | [🧩 الوحدات النظامية](docs/03-System-Modules.md) | هيكل الوحدات والتكامل |
-| [💾 قاعدة البيانات](docs/11-Database-Design.md) | تصميم قاعدة البيانات |
-| [🏗️ بنية النظام](docs/12-System-Architecture.md) | البنية التقنية والتصميم |
-| [🔒 الأمان](docs/15-Security-System.md) | استراتيجية الأمان |
-
-### 🔧 الوثائق التقنية
-
-| الوثيقة | الوصف |
-|---------|-------|
-| [⚙️ Stack التقني](docs/13-Technology-Stack.md) | التقنيات والأدوات |
-| [🎨 تصميم الواجهات](docs/14-UI-UX-Design.md) | UI/UX ومبادئ التصميم |
-| [🚀 بنية النشر](docs/18-Deployment-Architecture.md) | استراتيجية النشر |
-| [📱 التوسع المستقبلي](docs/19-Future-Expansion.md) | خطط التطوير المستقبلية |
-
----
-
-## 🏛️ بنية النظام
-
-```mermaid
-flowchart TB
-    subgraph Frontend["🖥️ Frontend Layer"]
-        Web[React Web App]
-        Desktop[Electron Desktop]
-        Mobile[Mobile App]
-    end
-    
-    subgraph APILayer["🔌 API Layer"]
-        Gateway[API Gateway]
-        Auth[Auth Middleware]
-        Rate[Rate Limiting]
-    end
-    
-    subgraph Backend["⚙️ Backend Layer"]
-        API[.NET Core API]
-        Services[Business Services]
-        Repos[Repositories]
-    end
-    
-    subgraph Data["💾 Data Layer"]
-        Postgres[(PostgreSQL)]
-        Redis[(Redis Cache)]
-        MinIO[MinIO Storage]
-    end
-    
-    Web --> Gateway
-    Desktop --> Gateway
-    Mobile --> Gateway
-    Gateway --> Auth --> Rate --> API
-    API --> Services --> Repos
-    Repos --> Postgres
-    Repos --> Redis
-    Repos --> MinIO
-```
+| [💾 قاعدة البيانات](docs/04-Database-Design.md) | تصميم SQLite + الجداول |
+| [🔄 نظام المزامنة](docs/05-Sync-System.md) | مزامنة Supabase |
+| [🖥️ بنية التطبيق](docs/06-App-Architecture.md) | هيكل Flutter |
+| [🎨 تصميم الواجهات](docs/07-UI-Design.md) | UI/UX للشاشات |
+| [🖨️ نظام الطباعة](docs/08-Printing-System.md) | طباعة الفواتير |
+| [📡 API التكامل](docs/09-API-Integration.md) | Supabase APIs |
+| [🔒 الأمان](docs/10-Security.md) | حماية البيانات |
+| [🧪 خطة الاختبار](docs/11-Testing-Plan.md) | استراتيجية الاختبار |
+| [🚀 خطة النشر](docs/12-Deployment.md) | بناء EXE للعملاء |
 
 ---
 
 ## 🚀 البدء السريع
 
-### متطلبات النظام
+### المتطلبات
 
-- **Node.js** 18+
-- **.NET SDK** 8.0+
-- **PostgreSQL** 15+
-- **Docker** (اختياري)
+- Flutter 3.24+
+- Dart 3.0+
+- Windows 10/11
+- Visual Studio 2022 (مع C++ workload)
 
-### خطوات التثبيت
+### التثبيت
 
 ```bash
-# 1. استنساخ المستودع
-git clone https://github.com/your-org/erp-system.git
-cd erp-system
+# 1. استنساخ المشروع
+git clone https://github.com/yourusername/flutter-erp.git
+cd flutter_erp
 
-# 2. تثبيت تبعيات Frontend
-cd src/ERP.Web
-npm install
+# 2. تثبيت التبعيات
+flutter pub get
 
-# 3. تثبيت تبعيات Backend
-cd ../ERP.API
-dotnet restore
+# 3. بناء للـ Windows
+flutter build windows --release
 
-# 4. تشغيل قاعدة البيانات
-docker-compose up -d postgres redis
-
-# 5. تشغيل التطبيق
-dotnet run
+# 4. تشغيل
+flutter run -d windows
 ```
 
 ---
 
-## 👥 الفريق
+## 👨‍💻 المطور
 
-| الدور | العدد |
-|-------|-------|
-| مدير المشروع | 1 |
-| مطور Backend (.NET) | 2 |
-| مطور Frontend (React) | 2 |
-| مصمم UI/UX | 1 |
-| مهندس QA | 1 |
-| DBA | 1 (جزئي) |
-
----
-
-## 📄 الترخيص
-
-هذا المشروع مرخص بموجب [MIT License](LICENSE).
+تم التطوير بواسطة: **[اسمك]**
 
 ---
 
 <p align="center">
-  Made with ❤️ for Retail Excellence
-</p>
-
-<p align="center">
-  <a href="mailto:contact@erpsystem.com">📧 تواصل معنا</a> •
-  <a href="https://erpsystem.com">🌐 الموقع الرسمي</a> •
-  <a href="https://docs.erpsystem.com">📖 التوثيق الكامل</a>
+  Made with ❤️ using Flutter
 </p>

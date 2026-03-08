@@ -1,6 +1,6 @@
 # 🤝 دليل المساهمة
 
-شكراً لاهتمامك بالمساهمة في مشروع ERP! نرحب بجميع المساهمات.
+شكراً لاهتمامك بالمساهمة في مشروع Flutter ERP!
 
 ## 📝 كيفية المساهمة
 
@@ -11,8 +11,8 @@
 ### 2. استنساخ المشروع
 
 ```bash
-git clone https://github.com/your-username/erp-system.git
-cd erp-system
+git clone https://github.com/your-username/flutter-erp.git
+cd flutter-erp
 ```
 
 ### 3. إنشاء فرع جديد
@@ -28,11 +28,7 @@ git checkout -b feature/your-feature-name
 ### 5. اختبار التغييرات
 
 ```bash
-# Backend
-dotnet test
-
-# Frontend
-npm test
+flutter test
 ```
 
 ### 6. إرسال التغييرات
@@ -49,19 +45,24 @@ git push origin feature/your-feature-name
 
 ## 📋 معايير الكود
 
-### Backend (.NET)
+### Flutter/Dart
 
-- اتبع C# Coding Conventions
-- استخدم async/await للعمليات غير المتزامنة
-- اكتب اختبارات وحدة لجميع الخدمات
-- استخدم Dependency Injection
+- اتبع Effective Dart Style Guide
+- استخدم `flutter_lints`
+- اكتب اختبارات للمنطق المعقد
+- استخدم Riverpod للـ State Management
 
-### Frontend (React/TypeScript)
+### هيكل الملفات
 
-- استخدم TypeScript لجميع الملفات
-- اتبع ESLint و Prettier
-- استخدم Functional Components مع Hooks
-- اكتب اختبارات للمكونات المعقدة
+```
+lib/
+├── core/           # الأساسيات (ثيمات، ثوابت، أدوات)
+├── data/           # البيانات (نماذج، مستودعات)
+├── services/       # الخدمات
+├── providers/      # Riverpod Providers
+├── screens/        # الشاشات
+└── widgets/        # المكونات المشتركة
+```
 
 ## 🏷️ أنواع Commit
 
@@ -79,6 +80,5 @@ git push origin feature/your-feature-name
 
 - GitHub Issues: للتبليغ عن الأخطاء
 - Discussions: للأسئلة والمناقشات
-- Email: dev@erpsystem.com
 
 شكراً لمساهمتك! 🎉
